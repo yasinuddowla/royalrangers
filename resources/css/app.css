@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.metal-mania-regular {
+  font-family: "Metal Mania", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Navigation scroll effects */
+#nav-container {
+  padding: 0.5rem 0;
+}
+
+#nav-container.nav-scrolled {
+  padding: 0;
+}
+
+#main-nav.nav-scrolled {
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Hero section common styles */
+.hero-section {
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero section background */
+.hero-section-bg {
+  background-color: #4F2153;
+}
+
+/* Navigation background styles */
+.nav-bg {
+  background-color: #4F2153;
+}
+
+.nav-bg.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Navigation logo styles */
+.nav-logo {
+  filter: brightness(0) invert(1); /* Makes logo white */
+  transition: all 0.3s ease;
+}
+
+.nav-logo.nav-scrolled {
+  filter: none; /* Shows original logo colors */
+}
+.nav-scrolled{
+  color: #4F2153;
+}
