@@ -1,0 +1,48 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  web-deploy:
+    name: Deploy to main server
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out source code
+        uses: actions/checkout@v3
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.PROD_SSH_KEY }}
+          known_hosts: "Started known host"
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.PROD_SERVER }} >> ~/.ssh/known_hosts
+
+      - name: Deploy with rsync
+        run: |
+          rsync -a --exclude-from='./deploy.ignore' ./ ${{ secrets.PROD_USERNAME }}@${{ secrets.PROD_SERVER }}:${{ secrets.PROD_UPLOAD_PATH }}
+          ssh -q ${{ secrets.PROD_USERNAME }}@${{ secrets.PROD_SERVER }} << 'EOF'
+            # change directory
+            cd ${{ secrets.PROD_UPLOAD_PATH }}
+            
+            # Set proper permissions first
+            chmod -R 775 database
+            chmod -R 664 database/database.sqlite 
+            chmod -R 775 bootstrap/cache 
+            chmod -R 775 storage
+            
+            # Now put the application in maintenance mode
+            php artisan down --render="errors::503"
+            
+            # Install npm dependencies
+            npm install --yes
+            npm run build
+            
+            # Install composer dependencies
+            composer install --no-interaction --prefer-dist --optimize-autoloader
+            php artisan migrate --force
+            php artisan optimize:clear
+            php artisan optimize  
+            php artisan up
+          EOF
