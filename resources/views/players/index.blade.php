@@ -18,15 +18,15 @@
         <!-- Players Grid -->
         <section class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                @if($teamMembers->count() > 0)
+                @if($players->count() > 0)
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-                        @foreach($teamMembers as $member)
+                        @foreach($players as $player)
                             <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                                 <!-- Player Photo -->
                                 <div class="relative overflow-hidden">
-                                    @if($member->photo)
-                                        <img src="{{ Storage::url($member->photo) }}" 
-                                             alt="{{ $member->full_name }}" 
+                                    @if($player->photo)
+                                        <img src="{{ Storage::url($player->photo) }}" 
+                                             alt="{{ $player->full_name }}" 
                                              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
                                     @else
                                         <div class="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -38,33 +38,33 @@
                                     
                                     <!-- Jersey Number Badge -->
                                     <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                                        #{{ $member->jersey_number }}
+                                        #{{ $player->jersey_number }}
                                     </div>
                                 </div>
 
                                 <!-- Player Info -->
                                 <div class="p-6">
                                     <div class="text-center">
-                                        <h3 class="text-xl font-semibold text-gray-900 mb-1">{{ $member->full_name }}</h3>
-                                        <p class="text-sm text-gray-600 mb-4">{{ $member->jersey_name }}</p>
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-1">{{ $player->full_name }}</h3>
+                                        <p class="text-sm text-gray-600 mb-4">{{ $player->jersey_name }}</p>
                                         
                                         <!-- Player Stats -->
                                         <div class="grid grid-cols-2 gap-2 mb-4 text-xs">
                                             <div class="bg-gray-50 rounded-lg p-2">
                                                 <div class="font-semibold text-gray-700">Jersey</div>
-                                                <div class="text-gray-600">{{ $member->jersey_size }}</div>
+                                                <div class="text-gray-600">{{ $player->jersey_size }}</div>
                                             </div>
                                             <div class="bg-gray-50 rounded-lg p-2">
                                                 <div class="font-semibold text-gray-700">Trouser</div>
-                                                <div class="text-gray-600">{{ $member->trouser_size }}</div>
+                                                <div class="text-gray-600">{{ $player->trouser_size }}</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Contact Links -->
                                     <div class="flex justify-center space-x-3">
-                                        @if($member->whatsapp_link)
-                                            <a href="{{ $member->whatsapp_link }}" 
+                                        @if($player->whatsapp_link)
+                                            <a href="{{ $player->whatsapp_link }}" 
                                                target="_blank" 
                                                class="text-green-600 hover:text-green-700 transition-colors duration-200 p-2 rounded-full hover:bg-green-50"
                                                title="WhatsApp">
@@ -74,8 +74,8 @@
                                             </a>
                                         @endif
 
-                                        @if($member->facebook_link)
-                                            <a href="{{ $member->facebook_link }}" 
+                                        @if($player->facebook_link)
+                                            <a href="{{ $player->facebook_link }}" 
                                                target="_blank" 
                                                class="text-blue-600 hover:text-blue-700 transition-colors duration-200 p-2 rounded-full hover:bg-blue-50"
                                                title="Facebook">
@@ -85,8 +85,8 @@
                                             </a>
                                         @endif
 
-                                        @if($member->cricheroes_profile_link)
-                                            <a href="{{ $member->cricheroes_profile_link }}" 
+                                        @if($player->cricheroes_profile_link)
+                                            <a href="{{ $player->cricheroes_profile_link }}" 
                                                target="_blank" 
                                                class="text-orange-600 hover:text-orange-700 transition-colors duration-200 p-2 rounded-full hover:bg-orange-50"
                                                title="CricHeroes Profile">

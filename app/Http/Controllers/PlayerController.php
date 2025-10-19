@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TeamMember;
+use App\Models\Player;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class TeamMemberController extends Controller
+class PlayerController extends Controller
 {
     /**
      * Display a listing of the resource (Public view).
      */
     public function index()
     {
-        $teamMembers = TeamMember::orderBy('jersey_number')->get();
-        return view('home', compact('teamMembers'));
+        $players = Player::orderBy('jersey_number')->get();
+        return view('home', compact('players'));
     }
 
     /**
@@ -22,8 +22,8 @@ class TeamMemberController extends Controller
      */
     public function players()
     {
-        $teamMembers = TeamMember::orderBy('jersey_number')->get();
-        return view('players.index', compact('teamMembers'));
+        $players = Player::orderBy('jersey_number')->get();
+        return view('players.index', compact('players'));
     }
 
     /**
@@ -31,7 +31,7 @@ class TeamMemberController extends Controller
      */
     public function create()
     {
-        return view('admin.team-members.create');
+        return view('admin.players.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class TeamMemberController extends Controller
             'jersey_name' => 'required|string|max:255',
             'jersey_size' => 'required|string|max:50',
             'trouser_size' => 'required|string|max:50',
-            'jersey_number' => 'required|integer|unique:team_members,jersey_number',
+            'jersey_number' => 'required|integer|unique:players,jersey_number',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'whatsapp_link' => 'nullable|url',
             'facebook_link' => 'nullable|url',
@@ -54,41 +54,41 @@ class TeamMemberController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('team-members', 'public');
+            $data['photo'] = $request->file('photo')->store('players', 'public');
         }
 
-        TeamMember::create($data);
+        Player::create($data);
 
-        return redirect()->route('admin.team-members.index')->with('success', 'Team member added successfully!');
+        return redirect()->route('admin.players.index')->with('success', 'Player added successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TeamMember $teamMember)
+    public function show(Player $player)
     {
-        return view('team-members.show', compact('teamMember'));
+        return view('players.show', compact('player'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TeamMember $teamMember)
+    public function edit(Player $player)
     {
-        return view('admin.team-members.edit', compact('teamMember'));
+        return view('admin.players.edit', compact('player'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TeamMember $teamMember)
+    public function update(Request $request, Player $player)
     {
         $request->validate([
             'full_name' => 'required|string|max:255',
             'jersey_name' => 'required|string|max:255',
             'jersey_size' => 'required|string|max:50',
             'trouser_size' => 'required|string|max:50',
-            'jersey_number' => 'required|integer|unique:team_members,jersey_number,' . $teamMember->id,
+            'jersey_number' => 'required|integer|unique:players,jersey_number,' . $player->id,
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'whatsapp_link' => 'nullable|url',
             'facebook_link' => 'nullable|url',
@@ -99,29 +99,29 @@ class TeamMemberController extends Controller
 
         if ($request->hasFile('photo')) {
             // Delete old photo if exists
-            if ($teamMember->photo) {
-                Storage::disk('public')->delete($teamMember->photo);
+            if ($player->photo) {
+                Storage::disk('public')->delete($player->photo);
             }
-            $data['photo'] = $request->file('photo')->store('team-members', 'public');
+            $data['photo'] = $request->file('photo')->store('players', 'public');
         }
 
-        $teamMember->update($data);
+        $player->update($data);
 
-        return redirect()->route('admin.team-members.index')->with('success', 'Team member updated successfully!');
+        return redirect()->route('admin.players.index')->with('success', 'Player updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TeamMember $teamMember)
+    public function destroy(Player $player)
     {
         // Delete photo if exists
-        if ($teamMember->photo) {
-            Storage::disk('public')->delete($teamMember->photo);
+        if ($player->photo) {
+            Storage::disk('public')->delete($player->photo);
         }
 
-        $teamMember->delete();
+        $player->delete();
 
-        return redirect()->route('admin.team-members.index')->with('success', 'Team member deleted successfully!');
+        return redirect()->route('admin.players.index')->with('success', 'Player deleted successfully!');
     }
 }

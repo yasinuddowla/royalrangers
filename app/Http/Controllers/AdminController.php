@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TeamMember;
+use App\Models\Player;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,16 +12,16 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        $teamMembersCount = TeamMember::count();
-        return view('admin.dashboard', compact('teamMembersCount'));
+        $playersCount = Player::count();
+        return view('admin.dashboard', compact('playersCount'));
     }
 
     /**
-     * Show the team members management page.
+     * Show the players management page.
      */
-    public function teamMembers()
+    public function players()
     {
-        $teamMembers = TeamMember::orderBy('jersey_number')->get();
-        return view('admin.team-members.index', compact('teamMembers'));
+        $players = Player::orderBy('jersey_number')->get();
+        return view('admin.players.index', compact('players'));
     }
 }

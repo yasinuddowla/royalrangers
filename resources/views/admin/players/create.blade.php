@@ -2,11 +2,11 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Add New Team Member') }}
+                {{ __('Add New Player') }}
             </h2>
-            <a href="{{ route('admin.team-members.index') }}" 
+            <a href="{{ route('admin.players.index') }}" 
                class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                Back to Members
+                Back to Players
             </a>
         </div>
     </x-slot>
@@ -15,7 +15,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
-                    <form method="POST" action="{{ route('admin.team-members.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.players.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Full Name -->
@@ -104,7 +104,7 @@
                                    name="photo" 
                                    accept="image/*" />
                             <x-input-error :messages="$errors->get('photo')" class="mt-2" />
-                            <p class="mt-1 text-sm text-gray-500">Upload a photo of the team member (optional)</p>
+                            <p class="mt-1 text-sm text-gray-500">Upload a photo of the player (optional)</p>
                         </div>
 
                         <!-- WhatsApp Link -->
@@ -146,7 +146,7 @@
                         <!-- Submit Button -->
                         <div class="flex items-center justify-end">
                             <x-primary-button>
-                                {{ __('Add Team Member') }}
+                                {{ __('Add Player') }}
                             </x-primary-button>
                         </div>
                     </form>

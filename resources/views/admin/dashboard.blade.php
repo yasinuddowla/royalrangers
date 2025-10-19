@@ -11,7 +11,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-6">
                 <div class="p-6 text-gray-900">
                     <h1 class="text-2xl font-bold text-gray-900 mb-2">Welcome to Royal Rangers Admin Panel</h1>
-                    <p class="text-gray-600">Manage your cricket team members and information.</p>
+                    <p class="text-gray-600">Manage your cricket team players and information.</p>
                 </div>
             </div>
 
@@ -27,8 +27,8 @@
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-500 truncate">Total Team Members</dt>
-                                    <dd class="text-lg font-medium text-gray-900">{{ $teamMembersCount }}</dd>
+                                    <dt class="text-sm font-medium text-gray-500 truncate">Total Players</dt>
+                                    <dd class="text-lg font-medium text-gray-900">{{ $playersCount }}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -45,8 +45,8 @@
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-500 truncate">Active Members</dt>
-                                    <dd class="text-lg font-medium text-gray-900">{{ $teamMembersCount }}</dd>
+                                    <dt class="text-sm font-medium text-gray-500 truncate">Active Players</dt>
+                                    <dd class="text-lg font-medium text-gray-900">{{ $playersCount }}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -77,20 +77,20 @@
                 <div class="p-6">
                     <h3 class="text-lg font-medium text-gray-900 mb-4">Quick Actions</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <a href="{{ route('admin.team-members.create') }}" 
+                        <a href="{{ route('admin.players.create') }}" 
                            class="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                             <svg class="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
-                            <span class="text-blue-700 font-medium">Add New Team Member</span>
+                            <span class="text-blue-700 font-medium">Add New Player</span>
                         </a>
 
-                        <a href="{{ route('admin.team-members.index') }}" 
+                        <a href="{{ route('admin.players.index') }}" 
                            class="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors duration-200">
                             <svg class="h-6 w-6 text-green-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
-                            <span class="text-green-700 font-medium">Manage Team Members</span>
+                            <span class="text-green-700 font-medium">Manage Players</span>
                         </a>
 
                         <a href="{{ route('home') }}" 

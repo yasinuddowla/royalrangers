@@ -13,12 +13,12 @@
                         Champions of the Cricket Field
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <a href="{{ route('players.index') }}" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
                             View Players
-                        </button>
-                        <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
+                        </a>
+                        <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
                             Latest Matches
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -84,15 +84,15 @@
                     <p class="text-xl text-gray-600">Meet our star players</p>
                 </div>
 
-                @if($teamMembers->count() > 0)
+                @if($players->count() > 0)
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        @foreach($teamMembers->take(4) as $member)
+                        @foreach($players->take(4) as $player)
                             <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                                 <!-- Player Photo -->
                                 <div class="w-full">
-                                    @if($member->photo)
-                                        <img src="{{ Storage::url($member->photo) }}" 
-                                             alt="{{ $member->full_name }}" 
+                                    @if($player->photo)
+                                        <img src="{{ Storage::url($player->photo) }}" 
+                                             alt="{{ $player->full_name }}" 
                                              class="w-full h-64 object-cover">
                                     @else
                                         <div class="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -106,17 +106,17 @@
                                 <!-- Player Info -->
                                 <div class="p-6">
                                     <div class="text-center">
-                                        <h3 class="text-xl font-semibold text-gray-900 mb-1">{{ $member->full_name }}</h3>
-                                        <p class="text-sm text-gray-600 mb-2">{{ $member->jersey_name }}</p>
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-1">{{ $player->full_name }}</h3>
+                                        <p class="text-sm text-gray-600 mb-2">{{ $player->jersey_name }}</p>
                                         <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 mb-4">
-                                            #{{ $member->jersey_number }}
+                                            #{{ $player->jersey_number }}
                                         </div>
                                     </div>
 
                                     <!-- Contact Links -->
                                     <div class="flex justify-center space-x-4">
-                                        @if($member->whatsapp_link)
-                                            <a href="{{ $member->whatsapp_link }}" 
+                                        @if($player->whatsapp_link)
+                                            <a href="{{ $player->whatsapp_link }}" 
                                                target="_blank" 
                                                class="text-green-600 hover:text-green-700 transition-colors duration-200 p-2 rounded-full hover:bg-green-50"
                                                title="WhatsApp">
@@ -126,8 +126,8 @@
                                             </a>
                                         @endif
 
-                                        @if($member->facebook_link)
-                                            <a href="{{ $member->facebook_link }}" 
+                                        @if($player->facebook_link)
+                                            <a href="{{ $player->facebook_link }}" 
                                                target="_blank" 
                                                class="text-blue-600 hover:text-blue-700 transition-colors duration-200 p-2 rounded-full hover:bg-blue-50"
                                                title="Facebook">
@@ -137,8 +137,8 @@
                                             </a>
                                         @endif
 
-                                        @if($member->cricheroes_profile_link)
-                                            <a href="{{ $member->cricheroes_profile_link }}" 
+                                        @if($player->cricheroes_profile_link)
+                                            <a href="{{ $player->cricheroes_profile_link }}" 
                                                target="_blank" 
                                                class="text-orange-600 hover:text-orange-700 transition-colors duration-200 p-2 rounded-full hover:bg-orange-50"
                                                title="CricHeroes Profile">
@@ -170,8 +170,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-medium text-gray-900 mb-2">No team members yet</h3>
-                        <p class="text-gray-500">Team members will appear here once they are added.</p>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">No players yet</h3>
+                        <p class="text-gray-500">Players will appear here once they are added.</p>
                     </div>
                 @endif
             </div>
