@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('whatsapp_link')->nullable();
             $table->string('facebook_link')->nullable();
             $table->string('cricheroes_profile_link')->nullable();
+            $table->boolean('is_featured')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -16,9 +16,13 @@ class Player extends Model
         'whatsapp_link',
         'facebook_link',
         'cricheroes_profile_link',
+        'is_featured',
+        'is_active',
     ];
 
     protected $casts = [
         'jersey_number' => 'integer',
+        'is_featured' => 'boolean',
+        'is_active' => 'boolean',
     ];
 }

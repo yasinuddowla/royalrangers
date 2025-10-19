@@ -132,7 +132,7 @@
                         </div>
 
                         <!-- CricHeroes Profile Link -->
-                        <div class="mb-6">
+                        <div class="mb-4">
                             <x-input-label for="cricheroes_profile_link" :value="__('CricHeroes Profile Link')" />
                             <x-text-input id="cricheroes_profile_link" 
                                           class="block mt-1 w-full" 
@@ -141,6 +141,36 @@
                                           :value="old('cricheroes_profile_link')" 
                                           placeholder="https://cricheroes.in/player/username" />
                             <x-input-error :messages="$errors->get('cricheroes_profile_link')" class="mt-2" />
+                        </div>
+
+                        <!-- Status Fields -->
+                        <div class="mb-4">
+                            <div class="flex items-center space-x-6">
+                                <div class="flex items-center">
+                                    <input id="is_featured" 
+                                           type="checkbox" 
+                                           name="is_featured" 
+                                           value="1"
+                                           {{ old('is_featured') ? 'checked' : '' }}
+                                           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
+                                    <label for="is_featured" class="ml-2 text-sm text-gray-900">
+                                        {{ __('Featured Player') }}
+                                    </label>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <input id="is_active" 
+                                           type="checkbox" 
+                                           name="is_active" 
+                                           value="1"
+                                           {{ old('is_active', true) ? 'checked' : '' }}
+                                           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
+                                    <label for="is_active" class="ml-2 text-sm text-gray-900">
+                                        {{ __('Active Player') }}
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="mt-1 text-sm text-gray-500">Featured players appear on the home page. Active players are visible to the public.</p>
                         </div>
 
                         <!-- Submit Button -->

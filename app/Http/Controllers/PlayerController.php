@@ -13,7 +13,7 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        $players = Player::orderBy('jersey_number')->get();
+        $players = Player::where('is_featured', true)->orderBy('jersey_number')->get();
         return view('home', compact('players'));
     }
 
@@ -22,7 +22,7 @@ class PlayerController extends Controller
      */
     public function players()
     {
-        $players = Player::orderBy('jersey_number')->get();
+        $players = Player::where('is_active', true)->orderBy('jersey_number')->get();
         return view('players.index', compact('players'));
     }
 
@@ -52,6 +52,10 @@ class PlayerController extends Controller
         ]);
 
         $data = $request->all();
+
+        // Handle checkbox values - unchecked checkboxes don't send any value
+        $data['is_featured'] = $request->has('is_featured');
+        $data['is_active'] = $request->has('is_active');
 
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('players', 'public');
@@ -96,6 +100,10 @@ class PlayerController extends Controller
         ]);
 
         $data = $request->all();
+
+        // Handle checkbox values - unchecked checkboxes don't send any value
+        $data['is_featured'] = $request->has('is_featured');
+        $data['is_active'] = $request->has('is_active');
 
         if ($request->hasFile('photo')) {
             // Delete old photo if exists
