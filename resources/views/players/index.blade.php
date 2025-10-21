@@ -49,14 +49,10 @@
                                         <p class="text-sm text-gray-600 mb-4">{{ $player->jersey_name }}</p>
                                         
                                         <!-- Player Stats -->
-                                        <div class="grid grid-cols-2 gap-2 mb-4 text-xs">
+                                        <div class="mb-4 text-xs">
                                             <div class="bg-gray-50 rounded-lg p-2">
-                                                <div class="font-semibold text-gray-700">Jersey</div>
+                                                <div class="font-semibold text-gray-700">Jersey Size</div>
                                                 <div class="text-gray-600">{{ $player->jersey_size }}</div>
-                                            </div>
-                                            <div class="bg-gray-50 rounded-lg p-2">
-                                                <div class="font-semibold text-gray-700">Trouser</div>
-                                                <div class="text-gray-600">{{ $player->trouser_size }}</div>
                                             </div>
                                         </div>
                                     </div>
