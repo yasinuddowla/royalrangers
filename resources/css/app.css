@@ -24,7 +24,7 @@
 
 /* Hero section common styles */
 .hero-section {
-  height: 60vh;
+  height: 90vh;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -33,9 +33,30 @@
   overflow: hidden;
 }
 
+/* Ensure hero content appears above overlay */
+.hero-section .relative {
+  z-index: 2;
+  position: relative;
+}
+
 /* Hero section background */
 .hero-section-bg {
-  background-color: #4F2153;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #4F2153; /* Fallback color */
+}
+
+/* Hero section purple overlay */
+.hero-section-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(79, 33, 83, 0.7) 0%, rgba(139, 92, 246, 0.5) 100%);
+  z-index: 1;
 }
 
 /* Navigation background styles */

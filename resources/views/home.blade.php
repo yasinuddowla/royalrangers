@@ -3,17 +3,17 @@
 
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="absolute inset-0 hero-section-bg"></div>
+            <div class="absolute inset-0 hero-section-bg" style="background-image: url('{{ asset('images/rr_bg.jpeg') }}');"></div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="text-center text-white">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-pulse metal-mania-regular">
+                <div class="text-center text-white mt-40">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 metal-mania-regular">
                         Royal Rangers
                     </h1>
-                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                    <p class="text-xl md:text-2xl mb-8 text-white">
                         Champions of the Cricket Field
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="{{ route('players.index') }}" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <a href="{{ route('players.index') }}" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
                             View Players
                         </a>
                         <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">

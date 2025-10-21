@@ -2,14 +2,15 @@
     <div class="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
 
         <!-- Page Header -->
-        <section class="hero-section hero-section-bg">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="text-center text-white">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 metal-mania-regular">
-                        All Players
+        <section class="hero-section">
+            <div class="absolute inset-0 hero-section-bg" style="background-image: url('{{ asset('images/rr_bg.jpeg') }}');"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="text-center text-white mt-80">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 metal-mania-regular">
+                        Royal Rangers
                     </h1>
-                    <p class="text-xl text-blue-100 mb-8">
-                        Meet the complete Royal Rangers squad
+                    <p class="text-xl md:text-2xl mb-8 text-white">
+                        Meet the squad
                     </p>
                 </div>
             </div>
