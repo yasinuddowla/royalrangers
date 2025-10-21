@@ -1,0 +1,1 @@
+<img src="{{ asset('images/cricheroes_logo.png') }}" alt="Cric Heroes Logo" {{ $attributes }}>
