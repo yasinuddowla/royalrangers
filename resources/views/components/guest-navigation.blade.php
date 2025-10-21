@@ -24,23 +24,79 @@
             
             <!-- Mobile menu button -->
             <div class="md:hidden ml-auto">
-                <button class="text-white hover:text-blue-200 mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobile-menu-button" class="text-white hover:text-blue-200 mobile-menu-btn focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 rounded-md p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="menu-icon">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
+                    <svg class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="close-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
                 </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/90 backdrop-blur-md border-t border-white/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{{ route('home') }}" class="block px-3 py-2 text-white hover:text-blue-200 hover:bg-white/20 rounded-md font-medium transition-colors duration-200 {{ request()->routeIs('home') ? 'text-blue-200 bg-white/20' : '' }}">Home</a>
+                <a href="{{ route('players.index') }}" class="block px-3 py-2 text-white hover:text-purple-200 hover:bg-white/20 rounded-md font-medium transition-colors duration-200 {{ request()->routeIs('players.*') ? 'text-purple-200 bg-white/20' : '' }}">Players</a>
+                <a href="{{ route('home') }}#about" class="block px-3 py-2 text-white hover:text-pink-200 hover:bg-white/20 rounded-md font-medium transition-colors duration-200">About</a>
+                <a href="#" class="block px-3 py-2 text-white hover:text-green-200 hover:bg-white/20 rounded-md font-medium transition-colors duration-200">Matches</a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Scroll Effect Script -->
+<!-- Navigation Script -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const logo = document.getElementById('nav-logo');
         const navContainer = document.getElementById('nav-container');
         const mainNav = document.getElementById('main-nav');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
         
+        // Mobile menu toggle
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    // Show mobile menu
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    // Hide mobile menu
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+        mobileMenuLinks?.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (mobileMenu && !mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+        
+        // Scroll effect
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 // Add scrolled class for smooth transitions
