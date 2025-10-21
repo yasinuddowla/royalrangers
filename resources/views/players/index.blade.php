@@ -46,7 +46,14 @@
                                 <div class="p-6">
                                     <div class="text-center">
                                         <h3 class="text-xl font-semibold text-gray-900 mb-1">{{ $player->full_name }}</h3>
-                                        <p class="text-sm text-gray-600 mb-4">{{ $player->jersey_name }}</p>
+                                        <p class="text-sm text-gray-600 mb-2">{{ $player->jersey_name }}</p>
+                                        
+                                        <!-- Player Role -->
+                                        <div class="mb-3">
+                                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium {{ $player->getRoleBadgeClasses() }}">
+                                                {{ $player->role }}
+                                            </span>
+                                        </div>
                                         
                                         <!-- Player Stats -->
                                         <div class="mb-4 text-xs">

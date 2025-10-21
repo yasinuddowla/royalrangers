@@ -42,9 +42,10 @@ class PlayerController extends Controller
         $request->validate([
             'full_name' => 'required|string|max:255',
             'jersey_name' => 'required|string|max:255',
+            'role' => 'required|in:Batsman,Bowler,All-Rounder',
             'jersey_size' => 'required|string|max:50',
             'trouser_size' => 'required|string|max:50',
-            'jersey_number' => 'required|integer|unique:players,jersey_number',
+            'jersey_number' => 'required|string|max:10|unique:players,jersey_number',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'whatsapp_link' => 'nullable|url',
             'facebook_link' => 'nullable|url',
@@ -90,9 +91,10 @@ class PlayerController extends Controller
         $request->validate([
             'full_name' => 'required|string|max:255',
             'jersey_name' => 'required|string|max:255',
+            'role' => 'required|in:Batsman,Bowler,All-Rounder',
             'jersey_size' => 'required|string|max:50',
             'trouser_size' => 'required|string|max:50',
-            'jersey_number' => 'required|integer|unique:players,jersey_number,' . $player->id,
+            'jersey_number' => 'required|string|max:10|unique:players,jersey_number,' . $player->id,
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'whatsapp_link' => 'nullable|url',
             'facebook_link' => 'nullable|url',

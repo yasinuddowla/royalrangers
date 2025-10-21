@@ -44,12 +44,27 @@
                             <x-input-error :messages="$errors->get('jersey_name')" class="mt-2" />
                         </div>
 
+                        <!-- Player Role -->
+                        <div class="mb-4">
+                            <x-input-label for="role" :value="__('Player Role')" />
+                            <select id="role" 
+                                    name="role" 
+                                    class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                                    required>
+                                <option value="">Select Player Role</option>
+                                <option value="Batsman" {{ old('role', $player->role) == 'Batsman' ? 'selected' : '' }}>Batsman</option>
+                                <option value="Bowler" {{ old('role', $player->role) == 'Bowler' ? 'selected' : '' }}>Bowler</option>
+                                <option value="All-Rounder" {{ old('role', $player->role) == 'All-Rounder' ? 'selected' : '' }}>All-Rounder</option>
+                            </select>
+                            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+                        </div>
+
                         <!-- Jersey Number -->
                         <div class="mb-4">
                             <x-input-label for="jersey_number" :value="__('Jersey Number')" />
                             <x-text-input id="jersey_number" 
                                           class="block mt-1 w-full" 
-                                          type="number" 
+                                          type="text" 
                                           name="jersey_number" 
                                           :value="old('jersey_number', $player->jersey_number)" 
                                           required />
