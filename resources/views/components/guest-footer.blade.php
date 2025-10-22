@@ -1,5 +1,5 @@
 <!-- Guest Footer Component -->
-<footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+<footer class="bg-linear-to-r from-gray-800 to-gray-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="col-span-1 md:col-span-2">

@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div class="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
         <!-- Header -->
         <div class="bg-white shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

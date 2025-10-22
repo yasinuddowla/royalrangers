@@ -1,9 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@theme {
+  --font-family-metal-mania: "Metal Mania", system-ui;
+}   
 
 .metal-mania-regular {
-  font-family: "Metal Mania", system-ui;
+  font-family: var(--font-family-metal-mania);
   font-weight: 400;
   font-style: normal;
 }
@@ -68,11 +73,10 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-
-
 .nav-logo.nav-scrolled {
   filter: none; /* Shows original logo colors */
 }
-.nav-scrolled{
+
+.nav-scrolled {
   color: #4F2153;
 }
