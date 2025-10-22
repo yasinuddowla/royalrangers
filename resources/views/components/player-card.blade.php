@@ -37,7 +37,7 @@
                 </div>
             @endif
             
-            <div class="flex justify-center space-x-4">
+            <div class="md:flex md:justify-center md:space-x-4">
                 @if($showRole)
                     <!-- Player Role -->
                     <div class="text-center">
