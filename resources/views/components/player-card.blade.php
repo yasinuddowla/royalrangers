@@ -7,7 +7,10 @@
             @if($player->photo)
                 <img src="{{ Storage::url($player->photo) }}" 
                      alt="{{ $player->full_name }}" 
-                     class="w-full h-64 object-cover">
+                     class="w-full h-64 object-cover"
+                     draggable="false"
+                     oncontextmenu="return false"
+                     onmousedown="return false">
             @else
                 <div class="w-full h-64 bg-linear-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                     <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
