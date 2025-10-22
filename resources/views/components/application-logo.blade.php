@@ -1,1 +1,1 @@
-<img src="{{ asset('images/RR_Logo.png') }}" alt="Royal Rangers Logo" {{ $attributes }}>
+<img src="{{ asset('images/rr_logo.png') }}" alt="Royal Rangers Logo" {{ $attributes }}>

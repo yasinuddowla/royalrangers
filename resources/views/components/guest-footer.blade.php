@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center mb-4">
-                    <img src="{{ asset('images/RR_Logo.png') }}" alt="Royal Rangers Logo" class="w-12 h-12">
+                    <x-application-logo class="block h-12 w-auto fill-current text-white" />
                     <span class="ml-3 text-2xl font-bold metal-mania-regular">Royal Rangers</span>
                 </div>
                 <p class="text-gray-300 mb-4">

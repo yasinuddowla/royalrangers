@@ -11,7 +11,7 @@
             
             <!-- Logo (Center) -->
             <div class="flex-1 flex justify-center">
-                <img src="{{ asset('images/RR_Logo.png') }}" alt="Royal Rangers Logo" class="w-16 h-16 transition-all duration-300 nav-logo" id="nav-logo">
+                <x-application-logo class="block h-16 w-auto fill-current text-white transition-all duration-300 nav-logo" id="nav-logo" />
             </div>
             
             <!-- Navigation Menu (Right) -->

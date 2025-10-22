@@ -68,11 +68,7 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Navigation logo styles */
-.nav-logo {
-  filter: brightness(0) invert(1); /* Makes logo white */
-  transition: all 0.3s ease;
-}
+
 
 .nav-logo.nav-scrolled {
   filter: none; /* Shows original logo colors */
